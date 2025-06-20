@@ -6,7 +6,7 @@ import path from "path";
 
 import { connectDB } from "./db/connectDB.js";
 
-import authRoutes from "./routes/auth.route.js";
+import authRoutes from "./routes/auth.routes.js";
 
 dotenv.config();
 
