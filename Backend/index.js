@@ -19,10 +19,19 @@ app.use(cookieParser());
 
 
 const PORT = process.env.PORT || 5000;
+const __dirname = path.resolve();
 
-app.get('/', (req, res) => {
-    res.send('Hello Healthy World!');
-});
+
+
+app.use("/api/auth", authRoutes);
+
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static(path.join(__dirname, "/Frontend/dist")));
+
+	app.get("*", (req, res) => {
+		res.sendFile(path.resolve(__dirname, "Frontend", "dist", "index.html"));
+	});
+}
 
 app.use("/api/auth", authRoutes);
 app.listen(PORT, () => {

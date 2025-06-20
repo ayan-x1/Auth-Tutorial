@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "backend/index.js",
   "scripts": {
-    "dev": "nodemon backend/index.js"
+    "dev": "NODE_ENV=development nodemon Backend/index.js",
+    "start": "NODE_ENV=production node Backend/index.js",
+    "build": "npm install && npm install --prefix Fontend && npm run build --prefix Frontend"
   },
   "keywords": [],
   "author": "",
